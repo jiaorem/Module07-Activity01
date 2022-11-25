@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+
+    <body ng-app="">
+        <h1>Welcome to the homepage!</h1>
+        <h2>Login | Registration</h2>
+
+        <form name="form">
+            <div ng-hide="toShow">
+                <label>Username</label>
+                <input type="text" required ng-model="Name" ng-readonly="checked" placeholder="Enter your username" ng-disabled="myVar2">
+            </br></br>
+            <label>Password</label>
+                <input type="password" required ng-model="Pass" ng-readonly="checked" placeholder="Enter your password" ng-disabled="myVar2">
+            </br>
+            <div>
+                <label>Set password as read-only?</label>
+                <input type="checkbox" ng-model="checked"></br></br>
+            </div>
+                <input type="button" ng-disabled="form.$invalid" ng-click="toShow=true" value="Sign-In">
+            </div></br></br>
+
+            <div ng-show="toShow">
+                Sign In Successful!
+                </br></br>
+                <input type="button" ng-click="toShow=false" value="Sign-Out">
+            </div>
+        </form>
+
+        <div ng-hide="toShow">
+        Dont have an account? Register now <input type="checkbox" ng-model="myVar" ng-init="myVar=false">
+
+        <div ng-if="myVar">
+            <form>
+            <p>Register</p>
+            <label>Username</label>
+            <input type="text" placeholder="Enter your username here">
+            <label>Password</label>
+            <input type="text" placeholder="Enter your password here" ng-disabled="disabled">
+            <input type="button" ng-click="toShow=false" value="Register" ng-model="disabled">
+            </form>
+        </div></br>
+    </body>
+</html>
